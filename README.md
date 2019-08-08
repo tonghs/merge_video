@@ -1,14 +1,15 @@
 # merge_video
 视频合并脚本
 
-```pipenv shell```
-
-```python
-pythion merge.py
+```
+conda env create -f envirenment.yml
+```
+```shell
+python merge.py
 ```
 
 or
 
-```python
+```shell
 python merge.py <video_clips_path>
 ```
