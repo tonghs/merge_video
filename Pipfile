@@ -1,0 +1,16 @@
+[[source]]
+# url = "https://pypi.org/simple"
+url = "https://mirrors.aliyun.com/pypi/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+
+[packages]
+imageio = "==2.5.0"
+moviepy = "==1.0.0"
+imageio-ffmpeg = "==0.3.0"
+pip = "==18.0"
+
+[requires]
+python_version = "3.6"
