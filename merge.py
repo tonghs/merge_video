@@ -20,7 +20,7 @@ def clip(video, path, start=0):
 
     print('... 开始裁切')
     tmp_name = filename.split('.')
-    new_filename = tmp_name[0] + '_clip.' + tmp_name[1]
+    new_filename = '.'.join(tmp_name[0: -1]) + '_clip.' + tmp_name[-1]
 
     result = video.subclip(start, None)
     result.write_videofile(os.path.join(path, new_filename), codec='libx264', audio_codec='aac', temp_audiofile='temp-audio.m4a', remove_temp=True)
@@ -62,6 +62,10 @@ def merge(li, path, start=0):
         print('需要裁切视频，开始时间:', start, li[0].filename)
         li[0] = clip(li[0], path, start)
 
+    if len(li) ==  1:
+        print('不需要拼接')
+        return
+
     print('需要拼接的视频: ')
     for v in li:
         print(f"    {v.filename}")
@@ -80,7 +84,6 @@ if __name__ == '__main__':
     """
     video_dir = './'
     clip_start = 0
-
     if len(sys.argv) > 1:
         video_dir = sys.argv[1]
 
